@@ -1,0 +1,63 @@
+.bug {
+  position: absolute;
+  top: -10%;
+  --rotateValue: 0rad;
+  transform: scale(0.75) rotate(var(--rotateValue));
+  width: 20px;
+    height: 20px;
+  display: flex;
+  justify-content: center;
+}
+  
+.bug-body {
+  width: 10px;
+    height: 20px;
+  border-radius: 50%;
+    background-color: black;
+  box-shadow: 0 0 5px rgba(0,0,0,1);
+  box-shadow: 0 0 2px rgba(255,255,255,0.5) inset;
+  position: absolute;
+}
+  
+.bug-legs {
+  display: flex;
+  justify-content: space-between;
+  height: 10px;
+  width: 18px;
+  position: absolute;
+  top: 20%;
+}
+
+.left-legs, .right-legs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leg {
+  width: 4px;
+    height: 1px;
+  background-color: black;
+}
+
+.leg.one, .leg.two, .leg.three {
+  
+  transform-origin: right;
+  transform: rotate(-45deg);
+}
+
+.leg.four, .leg.five, .leg.six {
+  transform-origin: left;
+  transform: rotate(-45deg);
+}
+
+@keyframes legsMovies {
+    0% {transform:rotate(-45deg)}
+  25% {transform:rotate(0deg)}
+  50% {transform:rotate(45deg)}
+  75% {transform:rotate(0deg)}
+}
+
+.leg {
+  animation: legsMovies 0.15s linear infinite
+}

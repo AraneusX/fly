@@ -1,0 +1,76 @@
+.fly {
+  position: absolute;
+  top: -10%;
+  width: 10px;
+  height: 12px;
+  --scaleValue : 1;
+  transform: scale(var(--scaleValue));
+}
+
+.fly-body {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: 0 0 5px rgba(0,0,0,1);
+  box-shadow: 0 0 2px rgba(255,255,255,0.5) inset;
+  position: absolute;
+  left: 29%;
+}
+
+.fly-wings {
+  display: flex;
+  justify-content: center;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: -20%;
+  left: 5%;
+}
+
+.wing {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.3;
+  box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+@keyframes wings-move-1-4 {
+   0% {opacity: 0.3}
+  10% {opacity: 0.0}
+  20% {opacity: 0.5}
+  30% {opacity: 0.0}
+  40% {opacity: 0.3}
+  50% {opacity: 0.0}
+  60% {opacity: 0.5}
+  70% {opacity: 0.0}
+  80% {opacity: 0.3}
+  90% {opacity: 0.0}
+ 100% {opacity: 0.3}
+}
+
+@keyframes wings-move-2-3 {
+   0% {opacity: 0.3}
+  10% {opacity: 0.4}
+  20% {opacity: 0.0}
+  30% {opacity: 0.3}
+  40% {opacity: 0.0}
+  50% {opacity: 0.5}
+  60% {opacity: 0.0}
+  70% {opacity: 0.3}
+  80% {opacity: 0.0}
+  90% {opacity: 0.3}
+ 100% {opacity: 0.0}
+}
+
+.wing.one,
+.wing.four {
+  animation: wings-move-1-4 0.5s linear infinite
+}
+
+.wing.two,
+.wing.three {
+  animation: wings-move-2-3 0.5s linear infinite
+}
