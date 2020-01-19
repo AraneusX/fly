@@ -4,17 +4,25 @@ export class Insect {
     this.currentPosition = position;
     this.centerPosition = getNewParameter3D(50, 50, 10);   //здесь
     this.movementLimit = getNewParameter3D(20, 20, 10);    //и здесь искуственно установим случайную z-координату и будем ее использовать в дальнейшем
-      
-    this.elem = document.querySelector(selector);
-    this.relativePosition = (getNewParameter3D()).assign(this.currentPosition).substrat(this.centerPosition);
+
+    this.relativePosition = (getNewParameter3D())
+      .assign(this.currentPosition)
+      .substrat(this.centerPosition);
+    
     this.vectorSpeed = getNewParameter3D();
+
+    this.elem = document.querySelector(selector);
+
   }
   
   move() {
     this.setNewCSSOptions();
 
     let  movementModifier = [];
-    movementModifier[0] = this.movement.getNewTrackModifer(this.currentPosition, getNextRandomPoint(this.centerPosition, this.movementLimit));
+    movementModifier[0] = this.movement.getNewTrackModifer(
+      this.currentPosition, 
+      getNextRandomPoint(this.centerPosition, this.movementLimit)
+    );
 
     function run() {
       let shiftVectorSpeed = getNewParameter3D();
@@ -26,8 +34,14 @@ export class Insect {
           movementModifier.shift();
         }
 
-        if (( movementModifier[i].getCompletion() > 50) && (! movementModifier[i].isParent)) {
-          movementModifier.push( this.movement.getNewTrackModifer(this.currentPosition, getNextRandomPoint(this.centerPosition, this.movementLimit)));
+        if (( movementModifier[i].getCompletion() > 50) && (!movementModifier[i].isParent)) {
+          movementModifier.push(
+            this.movement.getNewTrackModifer(
+              this.currentPosition, 
+              getNextRandomPoint(this.centerPosition, this.movementLimit)
+            )
+          );
+
           movementModifier[i].isParent = true;
         }
       }
