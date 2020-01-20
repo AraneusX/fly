@@ -24,7 +24,7 @@ export class Insect {
       getNextRandomPoint(this.centerPosition, this.movementLimit)
     );
 
-    function run() {
+    function step() {
       let shiftVectorSpeed = getNewParameter3D();
 
       for (let i = 0; i <=  movementModifier.length - 1; i++) {
@@ -49,12 +49,11 @@ export class Insect {
       this.vectorSpeed.assign(shiftVectorSpeed);
       
       this.setNewInsectPosition();
-      
-      setTimeout(runThis, 20);
+      requestAnimationFrame(thisStep);
     }
 
-    let runThis = run.bind(this);
-    runThis();
+    let thisStep = step.bind(this);
+    requestAnimationFrame(thisStep);
   }
 
   setNewCSSOptions() {

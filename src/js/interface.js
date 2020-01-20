@@ -16,45 +16,45 @@ document.querySelector('.butt').addEventListener( "click", () => {
       
   (function changeWidth() {
     let i = 1;
-    function run() {
+    function step() {
       if (flyParameters.offsetWidth > 50) {
         flyParameters.style.width = flyParameters.offsetWidth - i + 'px';
         bugParameters.style.width = bugParameters.offsetWidth - i + 'px';
         i++;
-        setTimeout(run, 20);
+        requestAnimationFrame(step);
       }else{
         flyParameters.style.width = '55px';
         bugParameters.style.width = '55px';
       }
     }
-    run();
+    requestAnimationFrame(step);
   })();
 
   (function changeHeight() {
     let i = 1;
-    function run() {
+    function step() {
       if (parametersWindow.offsetHeight < 210) {
         parametersWindow.style.height = parametersWindow.offsetHeight + i + 'px';
         i++;
-        setTimeout(run, 20);
+        requestAnimationFrame(step);
       }else{
         parametersWindow.style.height = '220px';
       }
     }
-    run();
+    requestAnimationFrame(step);
   })();
 
   (function changePosition() {
     let i = 1;
-    function run() {
+    function step() {
       if (parametersWindow.offsetWidth < innerWidth ) {
         parametersWindow.style.width = parametersWindow.offsetWidth + i + 'px';
-        i += 2;
-        setTimeout(run, 10);
+        i += 4;
+        requestAnimationFrame(step);
       }else{
         parametersWindow.style.width = '100%';
       }
     }
-    run();
+    requestAnimationFrame(step);
   })();
 }, {once:true});
