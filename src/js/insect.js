@@ -49,11 +49,11 @@ export class Insect {
       this.vectorSpeed.assign(shiftVectorSpeed);
       
       this.setNewInsectPosition();
-      requestAnimationFrame(thisStep);
+      requestAnimationFrame(step);
     }
 
-    let thisStep = step.bind(this);
-    requestAnimationFrame(thisStep);
+    step = step.bind(this);
+    requestAnimationFrame(step);
   }
 
   setNewCSSOptions() {
